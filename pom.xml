@@ -262,8 +262,6 @@
 				<configuration>
 					<server>myserver</server>
 					<url>http://localhost:8080/manager/text</url>
-					<username>vijeta</username>
-					<password>vijeta</password>
 					<path>/EmployeeApplication</path>
 				</configuration>
 

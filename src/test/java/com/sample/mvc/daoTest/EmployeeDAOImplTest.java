@@ -1,30 +1,103 @@
-/*package com.sample.mvc.daoTest;
+package com.sample.mvc.daoTest;
 
 import static org.junit.Assert.*;
+import static org.mockito.Mockito.*;
 
+import java.io.Serializable;
+import java.util.List;
+
+import org.hibernate.Query;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.junit.Before;
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.MockitoAnnotations;
+import org.mockito.runners.MockitoJUnitRunner;
 
+import com.sample.mvc.dao.EmployeeDAOImpl;
 import com.sample.mvc.model.EmployeeCommand;
-import com.sample.mvc.service.EmployeeService;
-import com.sample.mvc.service.EmployeeServiceImpl;
 
+
+@RunWith(MockitoJUnitRunner.class)
 public class EmployeeDAOImplTest {
 	
-//	EmployeeCommand emp=new EmployeeCommand(105,"vikas","pune");
-	EmployeeService emp1=new EmployeeServiceImpl();
+	@Mock
+	SessionFactory sessionFactory;
+	Serializable serializable=mock(Serializable.class);
+	Session session=mock(Session.class);
+	EmployeeCommand emp;
+	
+	@InjectMocks
+	EmployeeDAOImpl employeeDaoImpl=new EmployeeDAOImpl();
+	
+	@Before
+    public void setup() {
+ 
+        MockitoAnnotations.initMocks(this);
+        emp = new EmployeeCommand();
+    	 emp.setCode(105);
+    	 emp.setName("vikas");
+    	 emp.setCity("pune");
+        }
 	
 	@Test
-	public void addEmpTest()
+	public void addEmployeeTest()
 	{
-		String name="vikas" ,city="Ruchi";
-		int code=100 ;
-		EmployeeCommand employee=(EmployeeCommand) emp1.listContact();
-		String name1=employee.getName(),city1=employee.getCity();
-		int code1=employee.getCode();
-		System.out.println(code1);
-		assertEquals(name, name1);
-		assertEquals(city, city1);
-		assertEquals(code, code1);
+		
+		when(sessionFactory.getCurrentSession()).thenReturn(session);
+		when(session.save(any(EmployeeCommand.class))).thenReturn(serializable);
+		employeeDaoImpl.addEmployee(emp);
 	}
+	
+	
+	@Test
+	public void deleteEmployeeTest()
+	{
+		int deleteId=105;
+		when(sessionFactory.getCurrentSession()).thenReturn(session);
+		when(session.load(EmployeeCommand.class, deleteId)).thenReturn(emp);
+		when(session.load(EmployeeCommand.class, 101)).thenReturn(null);
+		assertNotNull(sessionFactory.getCurrentSession().load(EmployeeCommand.class, deleteId));
+		doNothing().when(session).delete(any(EmployeeCommand.class));
+		employeeDaoImpl.deleteEmployee(deleteId);
+		assertNull(sessionFactory.getCurrentSession().load(EmployeeCommand.class, 101));
+	}
+	
+	
+	@Test
+	public void listContactTest()
+	{
+		List<EmployeeCommand> empList=mock(List.class);
+        Query query=mock(Query.class);
+		when(sessionFactory.getCurrentSession()).thenReturn(session);
+		when(session.createQuery(anyString())).thenReturn(query);
+		when(query.list()).thenReturn(empList);
+		when(empList.add(any(EmployeeCommand.class))).thenReturn(true);
+		assertEquals(empList.size(),sessionFactory.getCurrentSession().createQuery(anyString()).list().size());
+		assertNotNull(employeeDaoImpl.listContact());
+		
+	}
+	
+	
+	@Test
+	public void getEmployeebyIdTest()
+	{
+		int getId=105;
+		when(sessionFactory.getCurrentSession()).thenReturn(session);
+		when(session.get(EmployeeCommand.class,getId)).thenReturn(emp);
+		assertEquals("pune",employeeDaoImpl.getEmployeebyId(getId).getCity());
+	}
+	
+	
+	@Test
+	public void updateEmployeeTest()
+	{
+		when(sessionFactory.getCurrentSession()).thenReturn(session);
+		doNothing().when(session).update(any(EmployeeCommand.class));
+		employeeDaoImpl.updateEmployee(emp);
+	}
+	
 }
-*/
