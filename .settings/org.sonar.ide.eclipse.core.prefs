@@ -1,6 +1,6 @@
 analyseLocally=true
 eclipse.preferences.version=1
-extraProperties=sonar.jdbc.password\=vijeta\r\nsonar.jdbc.username\=root\r\nsonar.jdbc.url\=jdbc\:mysql\://localhost\:3306/sonar\r\nsonar.jdbc.driver\=com.mysql.jdbc.Driver\r\nsonar.host.url\=http\://localhost\:9000/sonar
+extraProperties=
 lastAnalysisDate=1384343250840
 projectKey=com.alm.web\:EmployeeManagementSystem
 serverUrl=http\://localhost\:9000/sonar
