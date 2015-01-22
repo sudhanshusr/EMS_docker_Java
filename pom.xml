@@ -240,7 +240,7 @@
 					<generatePdf>true</generatePdf>
 					<generateXml>true</generateXml>
 					<generateHtml>true</generateHtml>
-					<generateHistorical>true</generateHistorical>
+					<!--<generateHistorical>true</generateHistorical>-->
 				</configuration>
 				<executions>
 					<execution>
