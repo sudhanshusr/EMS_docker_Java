@@ -22,9 +22,7 @@ import com.sample.mvc.controller.EmployeeController;
 import com.sample.mvc.model.EmployeeCommand;
 import com.sample.mvc.service.EmployeeService;
 
-/**
-added comments
-*/
+
 @RunWith(MockitoJUnitRunner.class)
 public class EmployeeControllerTest {
 	
