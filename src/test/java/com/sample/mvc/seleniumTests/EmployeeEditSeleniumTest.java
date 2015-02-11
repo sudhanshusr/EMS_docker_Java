@@ -18,7 +18,7 @@ public class EmployeeEditSeleniumTest {
   @Before
   public void setUp() throws Exception {
     driver = new FirefoxDriver();
-    baseUrl = "http://localhost:8080/EmployeeApplication/list";
+    baseUrl = "http://172.27.59.18:8090/EmployeeApplication/list";
     driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
   }
 

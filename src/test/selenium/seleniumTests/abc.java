@@ -16,7 +16,7 @@ public class abc {
   @Before
   public void setUp() throws Exception {
     driver = new FirefoxDriver();
-    baseUrl = "http://localhost:8090/VIKAS/";
+    baseUrl = "http://172.27.59.18:8090/";
     driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
   }
 
