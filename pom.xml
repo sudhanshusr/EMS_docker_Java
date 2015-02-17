@@ -13,10 +13,7 @@
 			<id>spring.test-mvc</id>
 			<url>http://repo.springsource.org/libs-milestone</url>
 		</repository>
-	</repositories>
-	
-	<repositories>
-		<repository>
+			<repository>
 			<id>excilys</id>
 			<name>Excilys Repository</name>
 			<url>http://repository.excilys.com/content/groups/public</url>
