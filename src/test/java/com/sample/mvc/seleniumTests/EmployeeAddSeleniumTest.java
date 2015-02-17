@@ -1,4 +1,4 @@
-package com.sample.mvc.seleniumTests;
+/* package com.sample.mvc.seleniumTests;
 
 import java.util.concurrent.TimeUnit;
 
@@ -16,7 +16,7 @@ public class EmployeeAddSeleniumTest {
 	@Before
 	public void setUp() throws Exception {
 		driver = new FirefoxDriver();
-		baseUrl = "http://172.27.59.96:8080/EMS_Hibernate1/add.jsp";
+		baseUrl = "http://172.27.59.5:8080/EmployeeApplication/jsp/add.jsp";
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 	}
 
@@ -24,7 +24,7 @@ public class EmployeeAddSeleniumTest {
 	public void testCheck() throws Exception {
 		driver.get(baseUrl + "");
 	    driver.findElement(By.name("code")).clear();
-	    driver.findElement(By.name("code")).sendKeys("264");
+	    driver.findElement(By.name("code")).sendKeys("423");
 	    driver.findElement(By.name("name")).clear();
 	    driver.findElement(By.name("name")).sendKeys("Rahul");
 	    driver.findElement(By.name("city")).clear();
@@ -40,3 +40,4 @@ public class EmployeeAddSeleniumTest {
 	}
 
 }
+ */

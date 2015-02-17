@@ -16,7 +16,7 @@ import org.springframework.test.context.web.WebAppConfiguration;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
-import com.sample.mvc.controller.EmployeeController;
+import com.sample.mvc.controller.EmployeeController
 import com.sample.mvc.model.EmployeeCommand;
 import com.sample.mvc.service.EmployeeService;
 
@@ -53,11 +53,11 @@ public class EmployeeControllerTest {
 	    public void testAddEmployee() throws Exception {
 	     
 	    	     
-	        this.mockMvc.perform(post("/add")
+	        this.mockMvc.perform(post("/jsp/add")
 	                .param("code", "101")
 	                .param("name", "mvcfirst")
 	                .param("city", "mvclastname"))
-	                .andExpect(view().name("redirect:list"))
+	                .andExpect(view().name("redirect:/list"))
 	                .andExpect(model().attributeExists("employeeCommand"));
 	     
 	    }
@@ -76,7 +76,7 @@ public class EmployeeControllerTest {
 					.perform(post("/edit/{code}", 105))
 					.andExpect(view().name("edit"))
 					.andExpect(forwardedUrl("edit"))
-				
+//					.andExpect(model().attribute("employee",  105 /*hasProperty("code", is(105))*/))
 					;
 
 			
