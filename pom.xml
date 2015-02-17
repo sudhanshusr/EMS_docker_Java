@@ -210,6 +210,7 @@
 			<optional>true</optional>
 		</dependency>
 	</dependencies>
+<<<<<<< HEAD
 	<profiles>
 		<profile>
 			<id>package</id>
@@ -220,6 +221,73 @@
 						<groupId>org.apache.maven.plugins</groupId>
 						<artifactId>maven-compiler-plugin</artifactId>
 						<version>3.1</version>
+=======
+
+	<build>
+		<finalName>EmployeeApplication</finalName>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.1</version>
+				<configuration>
+					<jdk>1.7</jdk>
+					<source>1.7</source>
+					<target>1.7</target>
+				</configuration>
+			</plugin>
+
+			<!-- <plugin>
+				<groupId>com.atlassian.maven.plugins</groupId>
+				<artifactId>maven-clover2-plugin</artifactId>
+				<version>3.1.12</version>
+				<configuration>
+					<encoding>utf-8</encoding>
+					<license><![CDATA[PpOnrjlpFewlfppRpEgUBpPbqOQJCUXjxddDPtIMwGJDGG 
+				mi2KYwlOOX3WDaavVOPbBQRA2Ktgp87Kv<XxIdM4P76DSK QMRrXSqOOqMmOmnNoNrtxoMpPOnooOnRRpvvWUWVTVwsOn 
+				mnmUUnpttrorsmmmmmUUnpttrorsmmmmmUU3vYXdbUUn]]>
+					</license>
+					<targetPercentage>10%</targetPercentage>
+					<jdk>1.7</jdk>
+					<generatePdf>true</generatePdf>
+					<generateXml>true</generateXml>
+					<generateHtml>true</generateHtml>
+					<generateHistorical>true</generateHistorical>
+				</configuration>
+				<executions>
+					<execution>
+						<id>main</id>
+						<phase>verify</phase>
+						<goals>
+							<goal>instrument</goal>
+							<goal>aggregate</goal>
+							<goal>clover</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin> -->
+
+			<!-- <plugin>
+				<groupId>org.apache.tomcat.maven</groupId>
+				<artifactId>tomcat7-maven-plugin</artifactId>
+				<version>2.1</version>
+				<configuration>
+					<server>myserver</server>
+					<url>http://172.27.59.18:8080/manager/text</url>
+					<username>admin</username>
+					<password>admin</password>
+					<path>/EMS_Hibernate1</path>
+				</configuration>
+
+				<executions>
+					<execution>
+						<id>start-tomcat</id>
+						<phase>pre-integration-test</phase>
+						<goals>
+
+							<goal>deploy</goal>
+						</goals>
+>>>>>>> 90bc3cb27c6f8fb639919434cca65c0122461335
 						<configuration>
 							<jdk>1.7</jdk>
 							<source>1.7</source>
@@ -248,6 +316,107 @@
 							<password>admin</password>
 							<path>/EMS_Hibernate1</path>
 						</configuration>
+<<<<<<< HEAD
+=======
+					</execution>
+					<execution>
+						<id>stop-tomcat</id>
+						<phase>post-integration-test</phase>
+						<goals>
+							<goal>shutdown</goal>
+						</goals>
+					</execution>
+
+
+				</executions>
+			</plugin> -->
+
+
+
+		</plugins>
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-war-plugin</artifactId>
+					<version>2.5</version>
+					<configuration>
+						<WebXml>src\main\webapp\WEB-INF\web.xml</WebXml>
+						<webResources>
+							<resource>
+								<!-- this is relative to the pom.xml directory -->
+								<directory>src\main\webapp\jsp</directory>
+								<!-- the list has a default value of ** -->
+								<includes>
+									<include>**/*.jsp</include>
+								</includes>
+							</resource>
+						</webResources>
+					</configuration>
+				</plugin>
+
+
+				<plugin>
+					<groupId>org.codehaus.mojo</groupId>
+					<artifactId>sonar-maven-plugin</artifactId>
+					<version>2.0</version>
+					<configuration>
+						<sonar.core.codeCoveragePlugin>jacoco</sonar.core.codeCoveragePlugin>
+						<sonar.language>java</sonar.language>
+						<sonar.exclusions> **/test/* </sonar.exclusions>
+					</configuration>
+					<executions>
+						<execution>
+							<phase>verify</phase>
+							<goals>
+								<goal></goal>
+							</goals>
+						</execution>
+					</executions>
+				</plugin>
+
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-surefire-plugin</artifactId>
+					<version>2.10</version>
+
+
+					<!-- <configuration> <excludes> <exclude>**/EmployeeControllerTest.java</exclude> 
+						<exclude>**/EmployeeAddControllerTest.java</exclude> </excludes> </configuration> -->
+					<configuration>
+						<!-- Skip the normal tests, we'll run them in the integration-test--> 
+							<skip>true</skip>
+
+						
+						<excludes>
+							<exclude>**/EmployeeDeleteSeleniumTest.java</exclude>
+							<exclude>**/EmployeeAddSeleniumTest.java</exclude>
+							<exclude>**/EmployeeEditSeleniumTest.java</exclude>
+						</excludes> 
+					</configuration>
+					<!--- <executions>
+						<execution>
+							<phase>integration-test</phase>
+							<goals>
+								<goal>test</goal>
+							</goals>
+							<configuration>
+								<excludes>
+								<exclude>**/EmployeeDeleteSeleniumTest.java</exclude>
+								<exclude>**/EmployeeControllerTest.java</exclude>
+								<exclude>**/com.sample.mvc.service/</exclude>
+								<exclude>**/com.sample.mvc.dao/</exclude>
+							</excludes>
+
+							</configuration> 
+						</execution>
+					</executions> -->  
+
+				</plugin>
+			</plugins>
+		</pluginManagement>
+	</build>
+>>>>>>> 90bc3cb27c6f8fb639919434cca65c0122461335
 
 						<executions>
 							<execution>
