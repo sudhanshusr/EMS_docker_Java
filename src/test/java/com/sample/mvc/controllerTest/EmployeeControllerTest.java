@@ -16,7 +16,7 @@ import org.springframework.test.context.web.WebAppConfiguration;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
-import com.sample.mvc.controller.EmployeeController
+import com.sample.mvc.controller.EmployeeController;
 import com.sample.mvc.model.EmployeeCommand;
 import com.sample.mvc.service.EmployeeService;
 
@@ -75,9 +75,9 @@ public class EmployeeControllerTest {
 			this.mockMvc
 					.perform(post("/edit/{code}", 105))
 					.andExpect(view().name("edit"))
-					.andExpect(forwardedUrl("edit"))
+					.andExpect(forwardedUrl("edit"));
 //					.andExpect(model().attribute("employee",  105 /*hasProperty("code", is(105))*/))
-					;
+					
 
 			
 		}
