@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <jsp:useBean  id="entity" class="com.sample.mvc.model.EmployeeCommand" scope="session"></jsp:useBean>
 <jsp:setProperty name="entity" property="*"/> 
 <html>
@@ -102,7 +103,7 @@ a:hover {color:#80A24A;}   /* mouse over link */
 			   </tr>
 		   </c:forEach>
 		 </table>
-  	<a href="<%=request.getContextPath()%>/add.jsp" id="AddEmployeeLink">Add Employee</a>
+  	<a href="<%=request.getContextPath()%>/jsp/add.jsp" id="AddEmployeeLink">Add Employee</a>
 	<a href="list">List Employees</a>
   </div>
 </body>
