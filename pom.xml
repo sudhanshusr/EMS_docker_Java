@@ -405,16 +405,11 @@
 
 						<executions>
 							<execution>
-								<phase>validate</phase>
+								<phase>test</phase>
 								<goals>
 									<goal>test</goal>
 								</goals>
 								<configuration>
-								<includes>
-								<include>**/EmployeeDeleteSeleniumTest.java</include>
-								<include>**/EmployeeAddSeleniumTest.java</include>
-								<include>**/EmployeeEditSeleniumTest.java</include>
-								</includes>
 									<excludes>
 										<exclude>**/EmployeeDeleteSeleniumTest.java</exclude>
 										<exclude>**/EmployeeControllerTest.java</exclude>
