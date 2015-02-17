@@ -14,7 +14,23 @@
 			<url>http://repo.springsource.org/libs-milestone</url>
 		</repository>
 	</repositories>
+	
+	<repositories>
+		<repository>
+			<id>excilys</id>
+			<name>Excilys Repository</name>
+			<url>http://repository.excilys.com/content/groups/public</url>
+		</repository>
+	</repositories>
 
+	<pluginRepositories>
+		<pluginRepository>
+			<id>excilys</id>
+			<name>Excilys Repository</name>
+			<url>http://repository.excilys.com/content/groups/public</url>
+		</pluginRepository>
+	</pluginRepositories>
+	
 	<dependencies>
 		<!-- Selenium -->
 
@@ -209,6 +225,14 @@
 			<version>3.0.1</version>
 			<optional>true</optional>
 		</dependency>
+		
+		<dependency>
+	        	<groupId>io.gatling.highcharts</groupId>
+	     		<artifactId>gatling-charts-highcharts</artifactId>
+			<version>2.0.0-M3a</version>
+     			<scope>test</scope>
+	     </dependency>
+		 
 	</dependencies>
 	<profiles>
 		<profile>
@@ -359,6 +383,20 @@
 				</pluginManagement>
 			</build>
 		</profile>
+		
+		<profile>
+			<id>gatling</id>
+			<build>
+				<plugins>
+			<plugin>
+			    <groupId>io.gatling</groupId>
+			    <artifactId>gatling-maven-plugin</artifactId>
+			    <version>2.0.0-M3a</version>
+			</plugin>
+			</plugins>
+			</build>
+		</profile>
+		
 		<profile>
 			<id>selenium</id>
 			<build>

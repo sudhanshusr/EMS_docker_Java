@@ -1,7 +1,6 @@
-/* package com.sample.mvc.seleniumTests;
+package com.sample.mvc.seleniumTests;
 
 import java.util.concurrent.TimeUnit;
-
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -16,7 +15,7 @@ public class EmployeeAddSeleniumTest {
 	@Before
 	public void setUp() throws Exception {
 		driver = new FirefoxDriver();
-		baseUrl = "http://172.27.59.5:8080/EmployeeApplication/jsp/add.jsp";
+		baseUrl = "http://172.27.59.18:8090/EmployeeApplication/jsp/add.jsp";
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 	}
 
@@ -40,4 +39,3 @@ public class EmployeeAddSeleniumTest {
 	}
 
 }
- */
