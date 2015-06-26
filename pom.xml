@@ -8,6 +8,10 @@
 	<name>Employee Management System</name>
 	<url>http://maven.apache.org</url>
 
+
+
+
+
 	<repositories>
 		<repository>
 			<id>spring.test-mvc</id>
@@ -28,6 +32,10 @@
 		</pluginRepository>
 	</pluginRepositories>
 	
+
+
+
+
 	<dependencies>
 		<!-- Selenium -->
 
@@ -42,6 +50,9 @@
 			<artifactId>selenium-server</artifactId>
 			<version>2.42.2</version>
 		</dependency>
+
+
+
 
 		<!-- <dependency> <groupId>com.fasterxml.jackson.core</groupId> <artifactId>jackson-core</artifactId> 
 			<version>2.2.1</version> <scope>test</scope> </dependency> <dependency> <groupId>com.fasterxml.jackson.core</groupId> 
