@@ -259,7 +259,7 @@
 						</configuration>
 					</plugin>
 
-					 <plugin> 
+					<!-- <plugin> 
 					 <groupId>com.atlassian.maven.plugins</groupId> 
 					 <artifactId>maven-clover2-plugin</artifactId> 
 						<version>3.1.12</version> 
@@ -287,7 +287,7 @@
 						</goals> 
 						</execution> 
 						</executions>
-						</plugin> 
+						</plugin> -->
 
 					<!-- <plugin>
 						<groupId>org.apache.tomcat.maven</groupId>
@@ -321,7 +321,76 @@
 							</execution>
 						</executions>
 					</plugin> -->
-
+			<plugin>
+				<groupId>org.jacoco</groupId>
+				<artifactId>jacoco-maven-plugin</artifactId>
+				<version>0.6.3.201306030806</version>
+				<configuration>
+					<destFile>${basedir}/target/jacoco.exec</destFile>
+					<dataFile>${basedir}/target/jacoco.exec</dataFile>
+				</configuration>
+				<executions>
+					<execution>
+						<id>jacoco-initialize</id>
+						<goals>
+							<goal>prepare-agent</goal>
+						</goals>
+					</execution>
+					<execution>
+						<id>jacoco-site</id>
+						<phase>package</phase>
+						<goals>
+							<goal>report</goal>
+						</goals>
+					</execution>
+					<execution>
+			            <id>pre-integration-test</id>
+			            <phase>pre-integration-test</phase>
+			            <goals>
+			                <goal>prepare-agent</goal>
+			            </goals>
+			            <configuration>
+			             <destFile>${project.build.directory}/coverage-reports/jacoco-it.exec</destFile>
+			                 <propertyName>jacoco.agent.arg</propertyName>
+			            </configuration>
+			        </execution>
+			        <execution>
+							<id>default-check</id>
+								<goals>
+									<goal>check</goal>
+								</goals>
+								 <configuration>
+						                <haltOnFailure>true</haltOnFailure>
+						                <rules>
+						                  <rule>
+						                    <limits>
+						                      <limit>
+						                        <counter>LINE</counter>
+						                        <value>COVEREDRATIO</value>
+						                        <minimum>0.70</minimum>
+						                      </limit>
+						                    </limits>
+						                  </rule>
+						                </rules>
+						              </configuration>
+							</execution>
+			        <execution>
+			            <id>post-integration-test</id>
+			            <phase>post-integration-test</phase>
+			            <goals>
+			                <goal>report</goal>
+			            </goals>
+			            <configuration>
+			                <dataFile>${project.build.directory}/coverage-reports/jacoco-it.exec</dataFile>
+			                <outputDirectory>${project.reporting.outputDirectory}/jacoco-it</outputDirectory>
+			            </configuration>
+			        </execution>
+		  </executions>
+		  </plugin> 
+					
+					
+					
+					
 					</plugins>
 				<pluginManagement>
 					<plugins>
