@@ -241,6 +241,12 @@
      			<scope>test</scope>
 	     </dependency>
 		 
+		 <dependency>
+				<groupId>io.gatling.highcharts</groupId>
+				<artifactId>gatling-charts-highcharts</artifactId>
+				<version>2.0.0-RC2</version>
+		</dependency>
+		 
 	</dependencies>
 	<profiles>
 		<profile>
@@ -510,11 +516,23 @@
 			<id>gatling</id>
 			<build>
 				<plugins>
-			<plugin>
+			<!--<plugin>
 			    <groupId>io.gatling</groupId>
 			    <artifactId>gatling-maven-plugin</artifactId>
 			    <version>2.0.0-M3a</version>
-			</plugin>
+			</plugin>-->
+			<plugin>
+                <groupId>io.gatling</groupId>
+                <artifactId>gatling-maven-plugin</artifactId>
+                <version>2.0.0-RC2</version>
+                <executions>
+                     <execution>
+                           <goals>
+                                <goal>execute</goal>
+                           </goals>
+                     </execution>
+                </executions>
+           </plugin>
 			</plugins>
 			</build>
 		</profile>
