@@ -351,15 +351,15 @@
 						</executions>
 						</plugin> -->
 
-					<!-- <plugin>
+				<!--	<plugin>
 						<groupId>org.apache.tomcat.maven</groupId>
 						<artifactId>tomcat7-maven-plugin</artifactId>
 						<version>2.1</version>
 						<configuration>
 							<server>myserver</server>
 							<url>http://localhost:8080/manager/text</url>
-							<username>vijetaa</username>
-							<password>vijetaa</password>
+							<username>vijeta</username>
+							<password>vijeta</password>
 							<path>/EMS_Hibernate1</path>
 						</configuration>
 						<executions>
