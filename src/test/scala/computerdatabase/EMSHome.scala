@@ -5,7 +5,9 @@ import io.gatling.http.Predef._
 import scala.concurrent.duration._
 
 class EMSHome extends Simulation {
+
   // your code starts here
+  val httpConf = http.proxy(Proxy("172.27.59.40", 8080))
 
   val scn = scenario("EMS Scenario")
     .exec(http("Home Page")
@@ -35,7 +37,7 @@ class EMSHome extends Simulation {
 
       setUp(scn.inject(rampUsers(100) over (10 seconds))).assertions(
         global.successfulRequests.percent.greaterThan(90)
-    )
+    ).protocols(httpConf)
   //setUp(scn.inject(rampUsers(100) over (10 seconds)))
   //  setUp(scn.inject(atOnceUsers(10)))
   // your code ends here
