@@ -248,10 +248,11 @@
 		</dependency>
 		
 		<dependency>
-			<groupId>org.jboss.netty</groupId>
-			<artifactId>netty</artifactId>
-			<version>3.2.10.Final</version>
-		</dependency>
+		<groupId>io.netty</groupId>
+		<artifactId>netty-all</artifactId> <!-- Use 'netty-all' for 4.0 or above -->
+		<version>4.0.27.Final-SNAPSHOT</version>
+		<scope>compile</scope>
+	  </dependency>
 
 		 
 	</dependencies>
