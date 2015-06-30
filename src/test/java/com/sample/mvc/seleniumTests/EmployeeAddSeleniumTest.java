@@ -11,11 +11,13 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 public class EmployeeAddSeleniumTest {
 	private WebDriver driver;
 	private String baseUrl;
+	private String ipAddress;
 
 	@Before
 	public void setUp() throws Exception {
 		driver = new FirefoxDriver();
-		baseUrl = "http://172.27.59.14:8090/EmployeeApplication/jsp/add.jsp";
+		ipAddress =  System.getProperty("ipAddress"); 
+		baseUrl = ipAddress+"/EmployeeApplication/jsp/add.jsp";
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 	}
 
