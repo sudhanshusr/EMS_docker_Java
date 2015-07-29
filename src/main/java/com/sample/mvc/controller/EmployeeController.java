@@ -12,7 +12,9 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.sample.mvc.model.EmployeeCommand;
 import com.sample.mvc.service.EmployeeService;
-
+/*
+controller
+*/
 @Controller
 public class EmployeeController {
 	@Autowired
