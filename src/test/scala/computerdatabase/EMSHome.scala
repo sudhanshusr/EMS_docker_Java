@@ -38,7 +38,7 @@ class EMSHome extends Simulation {
       .formParam("""code""", """1"""))
 
   setUp(scn.inject(rampUsers(100) over (10 seconds))).assertions(
-    global.successfulRequests.percent.greaterThan(30)).protocols(httpConf)
+    global.successfulRequests.percent.greaterThan(10)).protocols(httpConf)
   //setUp(scn.inject(rampUsers(100) over (10 seconds)))
   //  setUp(scn.inject(atOnceUsers(10)))
   // your code ends here
