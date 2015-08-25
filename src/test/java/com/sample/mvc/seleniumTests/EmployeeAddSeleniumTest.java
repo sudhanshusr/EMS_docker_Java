@@ -6,16 +6,19 @@ import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
+/**import org.openqa.selenium.firefox.FirefoxDriver;*/
+import org.openqa.selenium.htmlunit.HtmlUnitDriver;
 
 public class EmployeeAddSeleniumTest {
-	private WebDriver driver;
+	/**private WebDriver driver;*/
+	private HtmlUnitDriver driver;
 	private String baseUrl;
 	private String ipAddress;
 
 	@Before
 	public void setUp() throws Exception {
-		driver = new FirefoxDriver();
+		/**driver = new FirefoxDriver();*/
+		driver=new HtmlUnitDriver();
 		ipAddress =  System.getProperty("ipAddress"); 
 		baseUrl = ipAddress+"/EmployeeApplication/jsp/add.jsp";
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
