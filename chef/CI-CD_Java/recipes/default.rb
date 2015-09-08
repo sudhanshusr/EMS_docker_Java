@@ -53,6 +53,9 @@ cookbook_file '/root/slave-agent.jnlp'
 
 cookbook_file '/root/slave.jar'
 
+cookbook_file '/root/jenkins-cli.jar'
+
+
 #java -jar slave.jar -jnlpUrl http://172.27.59.64:8090/computer/Guaranga-Machine-Slave/slave-agent.jnlp
 #execute "java -jar slave.jar -jnlpUrl http://172.27.59.64:8090/computer/Build-Server/slave-agent.jnlp"
 
@@ -89,3 +92,4 @@ remote_file '/tmp/EmployeeApplicationSystem-1.0-SNAPSHOT.war' do
   mode '0755'
 #  checksum '3a7dac00b1' # A SHA256 (or portion thereof) of the file.
 end
+

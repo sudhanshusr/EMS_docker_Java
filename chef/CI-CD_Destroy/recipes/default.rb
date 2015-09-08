@@ -11,10 +11,21 @@ end
 
 execute "apt-get autoclean"
 execute "apt-get autoremove -y"
+#execute "java -jar /root/jenkins-cli.jar -s http://172.27.59.64:8090/ login --username manojshe --password shahrukh@123"
+#execute " java -jar /root/jenkins-cli.jar -s http://172.27.59.64:8090/ offline-node Chef-CI-CD-BuildServer"
 
 file "/root/slave.jar" do 
 	action :delete
 end
+
+file "/root/slave-agent.jnlp" do 
+	action :delete
+end
+
+file "/root/jenkins-cli.jar" do 
+	action :delete
+end
+
 
 #[ /opt/vijeta-jenkins/ /root/.m2 /root/.jenkins ].each do |path|
 directory "/opt/vijeta-jenkins/" do
