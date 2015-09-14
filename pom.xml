@@ -597,6 +597,10 @@
 									<goal>test</goal>
 								</goals>
 								<configuration>
+								<includes>
+								<include>**/EmployeeAddSeleniumTest.java</include>
+								<include>**/EmployeeEditSeleniumTest.java</include>
+								</includes>
 									<excludes>
 										<exclude>**/EmployeeDeleteSeleniumTest.java</exclude>
 										<exclude>**/EmployeeControllerTest.java</exclude>
