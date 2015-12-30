@@ -19,6 +19,7 @@ import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import com.sample.mvc.controller.EmployeeController;
 import com.sample.mvc.model.EmployeeCommand;
 import com.sample.mvc.service.EmployeeService;
+import org.junit.Assert;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @WebAppConfiguration
@@ -59,6 +60,7 @@ public class EmployeeControllerTest {
 	                .param("city", "mvclastname"))
 	                .andExpect(view().name("redirect:/list"))
 	                .andExpect(model().attributeExists("employeeCommand"));
+					 Assert.fail();
 	     
 	    }
 	    /*test method */
