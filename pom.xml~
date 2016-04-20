@@ -281,19 +281,22 @@
         </dependency>-->
 
 	</dependencies>
+	<profiles>
+		<profile>
+			<id>package</id>
 			<build>
 				<finalName>EmployeeApplication</finalName>
 				<plugins>
-					<plugin>
+					<!--<plugin>
 						<groupId>org.apache.maven.plugins</groupId>
 						<artifactId>maven-compiler-plugin</artifactId>
-						<version>3.1</version>
+						<version>3.5.1</version>
 						<configuration>
 							<jdk>1.7</jdk>
 							<source>1.7</source>
 							<target>1.7</target>
 						</configuration>
-					</plugin>
+					</plugin>-->
 					<plugin>
 							<groupId>org.apache.maven.plugins</groupId>
 							<artifactId>maven-surefire-plugin</artifactId>
@@ -462,7 +465,9 @@
 					
 					
 					
-					
+					</plugins>
+				<pluginManagement>
+					<plugins>
 						<plugin>
 							<groupId>org.apache.maven.plugins</groupId>
 							<artifactId>maven-war-plugin</artifactId>
@@ -537,8 +542,34 @@
 
 						
 					</plugins>
+				</pluginManagement>
 			</build>
-	
+		</profile>
+		
+		<profile>
+			<id>gatling</id>
+			<build>
+				<plugins>
+			<!--<plugin>
+			    <groupId>io.gatling</groupId>
+			    <artifactId>gatling-maven-plugin</artifactId>
+			    <version>2.0.0-M3a</version>
+			</plugin>-->
+			<plugin>
+                <groupId>io.gatling</groupId>
+                <artifactId>gatling-maven-plugin</artifactId>
+                <version>2.0.0-RC2</version>
+                <executions>
+                     <execution>
+                           <goals>
+                                <goal>execute</goal>
+                           </goals>
+                     </execution>
+                </executions>
+           </plugin>
+			</plugins>
+			</build>
+		</profile>
 		
 	<!--	<profile>
 			<id>docker</id>
@@ -562,4 +593,54 @@
 			</plugins>
 			</build>
 		</profile> -->
+		
+		
+		<profile>
+			<id>selenium</id>
+			<build>
+				<plugins>
+				<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-compiler-plugin</artifactId>
+						<version>3.1</version>
+						<configuration>
+							<jdk>1.7</jdk>
+							<source>1.7</source>
+							<target>1.7</target>
+						</configuration>
+					</plugin>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-surefire-plugin</artifactId>
+						<!--<version>2.10</version>-->
+						<version>2.18</version>
+						<executions>
+							<execution>
+								<phase>validate</phase>
+								<goals>
+									<goal>test</goal>
+								</goals>
+								<configuration>
+								<includes>
+								<include>**/EmployeeAddSeleniumTest.java</include>
+								<include>**/EmployeeEditSeleniumTest.java</include>
+								</includes>
+									<excludes>
+										<exclude>**/EmployeeDeleteSeleniumTest.java</exclude>
+										<exclude>**/EmployeeControllerTest.java</exclude>
+										<exclude>**/com.sample.mvc.service/</exclude>
+										<exclude>**/com.sample.mvc.dao/</exclude>
+									</excludes>
+
+								</configuration>
+							</execution>
+						</executions>
+
+					</plugin>
+				</plugins>
+
+			</build>
+		</profile>
+
+	</profiles>
 </project>
