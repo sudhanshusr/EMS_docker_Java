@@ -1,0 +1,6 @@
+demo:
+  build:
+    image: myapp
+    dockerfile_path: Dockerfile
+    ports: "8080:8080"
+    
