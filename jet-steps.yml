@@ -1,2 +1,9 @@
-service: demo
-  command: echo hello
+- type: parallel
+  name: testing
+  steps:
+    - type: serial
+      name: prepare_site
+      steps:
+        - name: jet_release_notes
+          service: demo
+          command: bash echo hello
